@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.VR;
+using UnityEngine.XR;
 
 public class XRInput : BaseInput
 {
@@ -19,7 +19,7 @@ public class XRInput : BaseInput
 
     public override Vector2 mousePosition
     {
-        get { return new Vector2(UnityEngine.XR.XRSettings.eyeTextureWidth / 2f, UnityEngine.XR.XRSettings.eyeTextureHeight / 2f); }
+        get { return new Vector2(XRSettings.eyeTextureWidth / 2f, XRSettings.eyeTextureHeight / 2f); }
     }
 
     public override bool GetMouseButton(int button)

@@ -62,7 +62,7 @@ public class XRSdkDescription
     public bool IsActiveSdk()
     {
         var buildTargetGroup = EditorUserBuildSettings.selectedBuildTargetGroup;
-        var chosenSdk = VREditor.GetVREnabledDevicesOnTargetGroup(buildTargetGroup).FirstOrDefault();
+        var chosenSdk = VREditor.GetVREnabledOnTargetGroup(buildTargetGroup).ToString();
         return chosenSdk == m_Key;
     }
 

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.VR;
+using UnityEngine.XR;
 
 public class VRInputCursor : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class VRInputCursor : MonoBehaviour
             return;
 
         var pointerData = new PointerEventData(m_EventSystem);
-        pointerData.position = new Vector2(UnityEngine.XR.XRSettings.eyeTextureWidth / 2f, UnityEngine.XR.XRSettings.eyeTextureHeight / 2f);
+        pointerData.position = new Vector2(XRSettings.eyeTextureWidth / 2f, XRSettings.eyeTextureHeight / 2f);
 
         m_RaycastResults.Clear();
         m_EventSystem.RaycastAll(pointerData, m_RaycastResults);
@@ -50,7 +50,7 @@ public class VRInputCursor : MonoBehaviour
         {
             m_Sprite.enabled = true;
 
-            var closestResult = new RaycastResult {distance = float.MaxValue};
+            var closestResult = new RaycastResult { distance = float.MaxValue };
             foreach (var r in m_RaycastResults)
             {
                 if (r.distance < closestResult.distance)

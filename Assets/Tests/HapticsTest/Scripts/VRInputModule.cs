@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.VR;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(XRInput))]
 [AddComponentMenu("Event/VR Input Module")]
@@ -13,7 +13,7 @@ public class VRInputModule : StandaloneInputModule
 
     public override bool IsModuleSupported()
     {
-        return base.IsModuleSupported() && UnityEngine.XR.XRSettings.isDeviceActive;
+        return base.IsModuleSupported() && XRSettings.isDeviceActive;
     }
 
     protected override MouseState GetMousePointerEventData(int id)

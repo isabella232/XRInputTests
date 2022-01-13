@@ -53,6 +53,8 @@ public class ListFeatureUsages : MonoBehaviour
                         displayTextAccumulator += TextAccumVector2(device, feature);
                     if (feature.type == typeof(Vector3))
                         displayTextAccumulator += TextAccumVector3(device, feature);
+                    if (feature.type == typeof(Quaternion))
+                        displayTextAccumulator += TextAccumQuaternion(device, feature);
                     if (feature.type == typeof(uint))
                         displayTextAccumulator += TextAccumUint(device, feature);
 
@@ -88,6 +90,12 @@ public class ListFeatureUsages : MonoBehaviour
     {
         Vector3 value;
         device.TryGetFeatureValue(feature.As<Vector3>(), out value);
+        return value.ToString();
+    }
+    string TextAccumQuaternion(InputDevice device, InputFeatureUsage feature)
+    {
+        Quaternion value;
+        device.TryGetFeatureValue(feature.As<Quaternion>(), out value);
         return value.ToString();
     }
     string TextAccumUint(InputDevice device, InputFeatureUsage feature)
